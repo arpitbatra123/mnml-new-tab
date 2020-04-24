@@ -1,0 +1,18 @@
+{
+  "name": "mnml new tab",
+  "description": "A minimal experience for the new tab page",
+  "version": "0.1",
+  "manifest_version": 2,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": ["tabs", "bookmarks", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" }
+}

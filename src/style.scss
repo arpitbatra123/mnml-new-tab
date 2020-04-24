@@ -1,0 +1,57 @@
+.content-container {
+  border: 1px solid black;
+  width: 500px;
+  height: 600px;
+  margin: 24px auto;
+  background-color: #fffef7;
+  .roman-date {
+    border-bottom: 1px solid black;
+    &-text {
+      font-size: 128px;
+      text-align: center;
+    }
+  }
+
+  .links {
+    margin-top: 128px;
+    display: flex;
+    justify-content: space-around;
+    .link-column {
+      margin: 0 auto;
+      .link {
+        display: block;
+        font-weight: 400;
+        margin-top: 16px;
+        font-size: 24px;
+        cursor: pointer;
+        text-decoration: none;
+        color: unset;
+      }
+      .link:hover {
+        text-decoration: underline;
+      }
+      .link:visited {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.quotes-container {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  .quote {
+    font-size: 28px;
+  }
+
+  .author {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .content-container {
+    width: 95vw;
+    height: 550px;
+  }
+}

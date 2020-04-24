@@ -1,0 +1,20 @@
+{
+  "name": "mnml-new-tab",
+  "version": "1.0.0",
+  "main": "file.js",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "node-sass": "^4.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}
