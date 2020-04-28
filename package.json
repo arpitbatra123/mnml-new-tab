@@ -11,7 +11,8 @@
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "bundle": "cd dist; web-ext build --overwrite-dest"
   },
   "keywords": [],
   "author": "",
