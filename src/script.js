@@ -90,6 +90,8 @@ const generateBookmarkItem = (bookmark) => {
   linkTag.classList.add('link');
   linkTag.href = bookmark.url;
   linkTag.setAttribute('target', '_blank');
+  // https://web.dev/external-anchors-use-rel-noopener/
+  linkTag.setAttribute('rel', 'noopener');
 
   // Display only the first word of the bookmark to preserve aesthetics
   linkTag.innerText = bookmark.title.split(' ')[0];
