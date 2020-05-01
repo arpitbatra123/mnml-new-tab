@@ -109,7 +109,8 @@ const processBookmarks = (bookmarks) => {
   bookmarksTwo.forEach((bookmark) => columnTwo.appendChild(generateBookmarkItem(bookmark)));
 };
 
-const fetchBookmarks = async () => {
+const getBookmarksFolder = async () => {
+  // Name of the folder in chrome
   let bookmarksIdentifier = 'Bookmarks Bar';
 
   // This function only exists in firefox
@@ -117,8 +118,19 @@ const fetchBookmarks = async () => {
     bookmarksIdentifier = 'Bookmarks Toolbar';
   }
 
-  const bookmarks = await browser.bookmarks.getTree(),
-    bookmarksBar = bookmarks[0].children.find((child) => child.title === bookmarksIdentifier);
+  const bookmarks = await browser.bookmarks.getTree();
+  let bookmarksFolder = bookmarks[0].children.find((child) => child.title === bookmarksIdentifier);
+
+  // If even the firefox folder isn't found then this is probably edge
+  if (!bookmarksFolder) {
+    bookmarksFolder = bookmarks[0].children.find((child) => child.title === 'Favourites Bar');
+  }
+
+  return bookmarksFolder;
+};
+
+const fetchBookmarks = async () => {
+  const bookmarksBar = await getBookmarksFolder();
   processBookmarks(bookmarksBar.children);
 };
 
