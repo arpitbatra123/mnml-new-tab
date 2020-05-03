@@ -1,5 +1,6 @@
 chrome.browserAction.onClicked.addListener(() => {
   try {
+    // firefox
     if (browser) {
       chrome.tabs.create({});
     }
