@@ -43,8 +43,8 @@ const setQuote = async () => {
   try {
     const storage = await browser.storage.local.get();
 
-    $('.quote').textContent = `"${storage.quote}"`;
-    $('.author').textContent = `- ${storage.author}`;
+    $('.quote').textContent = `"${!!storage.quote ? storage.quote : ''}"`;
+    $('.author').textContent = `- ${!!storage.author ? storage.author : ''}`;
   } catch (e) {
     console.error(e);
   }
@@ -71,7 +71,7 @@ const storeQuote = async (data) => {
 const fetchQuote = async () => {
   const storage = await browser.storage.local.get();
   const currentDay = Date.now();
-  const timeout = 8 * 60 * 60 * 1000 // 8 hours in ms
+  const timeout = 8 * 60 * 60 * 1000; // 8 hours in ms
 
   if (!storage.quote || currentDay - storage.fetchedAt > timeout) {
     fetch('https://quotes.rest/qod?language=en')
