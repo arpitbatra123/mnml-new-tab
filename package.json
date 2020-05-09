@@ -7,12 +7,14 @@
     "node-sass": "^4.14.1"
   },
   "devDependencies": {
+    "chokidar": "^3.4.0",
     "eslint": "^7.0.0",
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
     "build": "./build.sh",
-    "bundle": "cd dist; web-ext build --overwrite-dest"
+    "bundle": "cd dist; web-ext build --overwrite-dest",
+    "watch": "node scripts/watch.js"
   },
   "keywords": [],
   "author": "",
