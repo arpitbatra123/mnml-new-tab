@@ -5,6 +5,7 @@ node-sass --output-style expanded --output dist/ src/
 
 cp -R src/ dist/
 
-rm dist/style.scss
+# remove all scss files
+rm dist/styles/*.scss
 
 echo "done at $(date)"

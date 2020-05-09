@@ -12,7 +12,8 @@
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
-    "build": "./scripts/build.sh",
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && ./scripts/build.sh",
     "bundle": "cd dist; web-ext build --overwrite-dest",
     "watch": "npm run build && node scripts/watch.js"
   },

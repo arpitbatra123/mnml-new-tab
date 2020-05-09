@@ -1,9 +1,9 @@
 /** This utility will watch the extensions src folder for changes,
  * and will automatically rebuild the extension whenever the source code changes */
-const chokidar = require('chokidar'),
+const { watch } = require('chokidar'),
   { exec } = require('child_process');
 
-chokidar.watch('src').on('change', () => {
+watch('src').on('change', () => {
   console.log(`building extension....`);
   exec('./scripts/build.sh', (error, stdout, stderr) => {
     if (error) {
