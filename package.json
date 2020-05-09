@@ -12,9 +12,9 @@
     "eslint-config-google": "^0.14.0"
   },
   "scripts": {
-    "build": "./build.sh",
+    "build": "./scripts/build.sh",
     "bundle": "cd dist; web-ext build --overwrite-dest",
-    "watch": "node scripts/watch.js"
+    "watch": "npm run build && node scripts/watch.js"
   },
   "keywords": [],
   "author": "",
