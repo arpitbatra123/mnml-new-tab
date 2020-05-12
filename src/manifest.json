@@ -14,9 +14,5 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "icons": { "16": "assets/icon16.png", "48": "assets/icon48.png", "128": "assets/icon.png" },
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
-  }
+  "icons": { "16": "assets/icon16.png", "48": "assets/icon48.png", "128": "assets/icon.png" }
 }
