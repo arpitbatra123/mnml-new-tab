@@ -40,7 +40,7 @@ To read the story behind why I made this extension, read my blog [post](https://
 - [Firefox Extension](https://addons.mozilla.org/en-GB/firefox/addon/mnml-new-tab/)
 - [Chrome Extension](https://chrome.google.com/webstore/detail/mnml-new-tab/mceanpcekehmcfalnmllidcfipajpeml?hl=en)
 
-If you don't see any links, then you probably don't have any bookmarks in the folders that this extension picks them from. See the [Features](##Features) section for the name of the folder and add some bookmarks there.
+If you don't see any links, then you probably don't have any bookmarks in the folders that this extension picks them from. See the [Features](#Features) section for the name of the folder and add some bookmarks there.
 
 ## Thanks
 
