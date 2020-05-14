@@ -33,7 +33,7 @@ To read the story behind why I made this extension, read my blog [post](https://
 - Clone the repo
 - Install dependencies using `npm i`
 - Run watch mode using `npm run watch`. This will build the extension as you make changes to the code.
-- Load the unpacked extension, from the dist folder (load unpacked extension in chrome - chrome://extensions or load temporary addon in firefox - about:debugging##/runtime/this-firefox)
+- Load the unpacked extension, from the dist folder load unpacked extension in chrome - chrome://extensions or load temporary addon in firefox - about:debugging#/runtime/this-firefox
 
 ## Download
 
