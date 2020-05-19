@@ -17,6 +17,7 @@ const datesToRoman = {
   '16': 'XVI',
   '17': 'XVII',
   '18': 'XVIII',
+  '19': 'XIX',
   '20': 'XX',
   '21': 'XXI',
   '22': 'XXII',
