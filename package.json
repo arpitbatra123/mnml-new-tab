@@ -14,7 +14,7 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "build": "npm run clean && ./scripts/build.sh",
-    "bundle": "cd dist; web-ext build --overwrite-dest",
+    "bundle": "npm run build && cd dist; web-ext build --overwrite-dest",
     "watch": "npm run build && node scripts/watch.js"
   },
   "keywords": [],
