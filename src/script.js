@@ -44,7 +44,8 @@ const setQuote = async () => {
   try {
     const storage = await browser.storage.local.get();
 
-    $('.quote').textContent = `"${!!storage.quote ? storage.quote : ''}"`;
+    // https://practicaltypography.com/straight-and-curly-quotes.html
+    $('.quote').textContent = `“${!!storage.quote ? storage.quote : ''}”`;
     $('.author').textContent = `- ${!!storage.author ? storage.author : ''}`;
   } catch (e) {
     console.error(e);
