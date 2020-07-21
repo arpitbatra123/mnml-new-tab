@@ -42,11 +42,13 @@ const $$ = (path) => {
 
 const setQuote = async () => {
   try {
-    const storage = await browser.storage.local.get();
+    const storage = await browser.storage.local.get(),
+    wikipediaBaseUrl = 'https://en.wikipedia.org/wiki/Special:Search';
 
     // https://practicaltypography.com/straight-and-curly-quotes.html
     $('.quote').textContent = `“${!!storage.quote ? storage.quote : ''}”`;
     $('.author').textContent = `- ${!!storage.author ? storage.author : ''}`;
+    $('.author').href = `${wikipediaBaseUrl}/${encodeURI(storage.author)}`;
   } catch (e) {
     console.error(e);
   }
