@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Mono', apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-weight: 300;
+  font-size: unset;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: unset;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.content-container {
+  border: 1px solid rgba(0, 0, 0, 0.79);
+  width: 500px;
+  height: 550px;
+  margin: 24px auto;
+  background-color: #e1e1e1;
+}
+
+.content-container .roman-date {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.79);
+  height: 120px;
+}
+
+.content-container .roman-date-text {
+  font-size: 96px;
+  line-height: 125px;
+  text-align: center;
+}
+
+.content-container .links {
+  margin-top: 112px;
+  display: flex;
+  justify-content: space-around;
+  text-transform: lowercase;
+}
+
+.content-container .links .link-column {
+  margin: 0 auto;
+}
+
+.content-container .links .link-column .link {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.content-container .links .link-column .link:hover {
+  text-decoration: underline;
+}
+
+.content-container .links .link-column .link:visited {
+  text-decoration: none;
+}
+
+.quotes-container {
+  text-align: center;
+  margin: 40px auto;
+  font-size: 24px;
+  max-width: 70vw;
+}
+
+.quotes-container .author {
+  margin-top: 12px;
+  display: block;
+}
+
+@media only screen and (max-width: 500px) {
+  .content-container {
+    width: 95vw;
+    height: 550px;
+  }
+}
