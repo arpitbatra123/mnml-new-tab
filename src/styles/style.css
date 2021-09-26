@@ -85,3 +85,17 @@ a:visited {
     height: 550px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #212121;
+    color: #b5cfed;
+  }
+  .content-container {
+    border: 1px solid #b5cfed;
+    background: #1e1e1e;
+  }
+  .content-container .roman-date {
+    border-bottom: 1px solid #b5cfed;
+  }
+}

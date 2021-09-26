@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "main": "file.js",
   "devDependencies": {
-    "chokidar": "^3.4.1",
-    "eslint": "^7.5.0",
+    "chokidar": "^3.5.2",
+    "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
-    "web-ext": "^4.3.0"
+    "web-ext": "^6.4.0"
   },
   "scripts": {
     "clean": "rm -rf dist/",
-    "build": "npm run clean && ./scripts/build.sh",
-    "bundle": "npm run build && cd dist; web-ext build --overwrite-dest",
-    "watch": "npm run build && node scripts/watch.js"
+    "bundle": "web-ext build --s src -a dist"
   },
   "keywords": [],
   "author": "",
