@@ -1,8 +1,9 @@
 {
   "name": "mnml new tab",
   "description": "A minimal experience for the new tab page",
-  "version": "0.9",
+  "version": "1.0",
   "manifest_version": 2,
+  "options_page": "options.html",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

@@ -1,35 +1,35 @@
 const datesToRoman = {
-  '1': 'I',
-  '2': 'II',
-  '3': 'III',
-  '4': 'IV',
-  '5': 'V',
-  '6': 'VI',
-  '7': 'VII',
-  '8': 'VIII',
-  '9': 'IX',
-  '10': 'X',
-  '11': 'XI',
-  '12': 'XII',
-  '13': 'XIII',
-  '14': 'XIV',
-  '15': 'XV',
-  '16': 'XVI',
-  '17': 'XVII',
-  '18': 'XVIII',
-  '19': 'XIX',
-  '20': 'XX',
-  '21': 'XXI',
-  '22': 'XXII',
-  '23': 'XXIII',
-  '24': 'XXIV',
-  '25': 'XXV',
-  '26': 'XXVI',
-  '27': 'XXVII',
-  '28': 'XXVIII',
-  '29': 'XXIX',
-  '30': 'XXX',
-  '31': 'XXXI'
+  1: 'I',
+  2: 'II',
+  3: 'III',
+  4: 'IV',
+  5: 'V',
+  6: 'VI',
+  7: 'VII',
+  8: 'VIII',
+  9: 'IX',
+  10: 'X',
+  11: 'XI',
+  12: 'XII',
+  13: 'XIII',
+  14: 'XIV',
+  15: 'XV',
+  16: 'XVI',
+  17: 'XVII',
+  18: 'XVIII',
+  19: 'XIX',
+  20: 'XX',
+  21: 'XXI',
+  22: 'XXII',
+  23: 'XXIII',
+  24: 'XXIV',
+  25: 'XXV',
+  26: 'XXVI',
+  27: 'XXVII',
+  28: 'XXVIII',
+  29: 'XXIX',
+  30: 'XXX',
+  31: 'XXXI'
 };
 
 const $ = (path) => {
@@ -43,7 +43,7 @@ const $$ = (path) => {
 const setQuote = async () => {
   try {
     const storage = await browser.storage.local.get(),
-    wikipediaBaseUrl = 'https://en.wikipedia.org/wiki/Special:Search';
+      wikipediaBaseUrl = 'https://en.wikipedia.org/wiki/Special:Search';
 
     // https://practicaltypography.com/straight-and-curly-quotes.html
     $('.quote').textContent = `“${!!storage.quote ? storage.quote : ''}”`;
@@ -106,6 +106,14 @@ const generateBookmarkItem = (bookmark) => {
 
 const processBookmarks = (bookmarks) => {
   const bookmarksOne = bookmarks.slice(0, 4);
+
+  if (!bookmarks.length) {
+    $$('.link-column')[0].remove();
+    $$('.link-column')[0].remove();
+    $('.links').appendChild(document.createTextNode('no bookmarks found, choose a folder from options'));
+    return;
+  }
+
   const columnOne = $$('.link-column')[0];
   bookmarksOne.forEach((bookmark) => columnOne.appendChild(generateBookmarkItem(bookmark)));
 
@@ -123,21 +131,22 @@ const filterBookmarks = (bookmarksTree) => {
 };
 
 const getBookmarksFolder = async () => {
-  // Name of the folder in chrome
-  let bookmarksIdentifier = 'Bookmarks Bar';
+  const storage = await browser.storage.local.get();
+  let bookmarksIdentifier, bookmarksTree;
+  if (storage.chosenBookmarkFolder) {
+    bookmarksIdentifier = storage.chosenBookmarkFolder;
+  } else {
+    // Name of the folder in chrome
+    bookmarksIdentifier = 'Bookmarks Bar';
 
-  // This function only exists in firefox
-  if (browser.runtime.getBrowserInfo) {
-    bookmarksIdentifier = 'Bookmarks Toolbar';
+    // This function only exists in firefox
+    if (browser.runtime.getBrowserInfo) {
+      bookmarksIdentifier = 'Bookmarks Toolbar';
+    }
   }
 
   const bookmarks = await browser.bookmarks.getTree();
-  let bookmarksTree = bookmarks[0].children.find((child) => child.title === bookmarksIdentifier);
-
-  // If even the firefox folder isn't found then this is probably edge
-  if (!bookmarksTree) {
-    bookmarksTree = bookmarks[0].children.find((child) => child.title === 'Favourites Bar');
-  }
+  bookmarksTree = bookmarks[0].children.find((child) => child.title === bookmarksIdentifier);
 
   return filterBookmarks(bookmarksTree);
 };
@@ -155,3 +164,11 @@ setDate();
 
 // fetch and set bookmarks
 fetchBookmarks();
+
+document.querySelector('#go-to-options').addEventListener('click', function () {
+  if (chrome.runtime.openOptionsPage) {
+    chrome.runtime.openOptionsPage();
+  } else {
+    window.open(chrome.runtime.getURL('options.html'));
+  }
+});
