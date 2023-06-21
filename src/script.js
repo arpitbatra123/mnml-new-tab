@@ -59,13 +59,13 @@ const setDate = () => {
 };
 
 const storeQuote = async (data) => {
-  if (!data.contents) {
+  if (!data) {
     return;
   }
 
   await browser.storage.local.set({
-    quote: data.contents.quotes[0].quote,
-    author: data.contents.quotes[0].author,
+    quote: data.quote,
+    author: data.author,
     fetchedAt: Date.now()
   });
 
@@ -78,7 +78,7 @@ const fetchQuote = async () => {
   const timeout = 8 * 60 * 60 * 1000; // 8 hours in ms
 
   if (!storage.quote || currentDay - storage.fetchedAt > timeout) {
-    fetch('https://quotes.rest/qod?language=en')
+    fetch('https://api.muetab.com/quotes/random?language=English')
       .then((response) => response.json())
       .then((result) => {
         storeQuote(result);

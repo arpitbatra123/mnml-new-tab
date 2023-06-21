@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "file.js",
   "devDependencies": {
-    "chokidar": "^3.5.2",
-    "eslint": "^7.32.0",
+    "eslint": "^8.43.0",
     "eslint-config-google": "^0.14.0",
-    "web-ext": "^6.4.0"
+    "web-ext": "^7.6.2"
   },
   "scripts": {
     "clean": "rm -rf dist/",
-    "bundle": "web-ext build --s src -a dist"
+    "bundle": "web-ext build --s src -a dist",
+    "run": "web-ext run --s src"
   },
   "keywords": [],
   "author": "",

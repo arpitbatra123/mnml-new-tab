@@ -1,8 +1,8 @@
 {
   "name": "mnml new tab",
   "description": "A minimal experience for the new tab page",
-  "version": "1.0.1",
-  "manifest_version": 2,
+  "version": "1.0.2",
+  "manifest_version": 3,
   "options_page": "options.html",
   "chrome_url_overrides": {
     "newtab": "index.html"
@@ -12,8 +12,6 @@
   },
   "permissions": ["bookmarks", "storage"],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
   },
   "icons": { "16": "assets/icon16.png", "48": "assets/icon48.png", "128": "assets/icon.png" }
 }
