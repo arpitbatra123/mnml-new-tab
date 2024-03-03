@@ -35,12 +35,16 @@ a:visited {
 
 .content-container .roman-date {
   border-bottom: 1px solid rgba(0, 0, 0, 0.79);
-  height: 120px;
+  height: 160px;
 }
 
 .content-container .roman-date-text {
   font-size: 96px;
   line-height: 125px;
+  text-align: center;
+}
+
+.content-container .year-progress-text {
   text-align: center;
 }
 
